@@ -1,50 +1,45 @@
 ---
+import AboutMe from "../components/AboutMe.astro";
+import Experience from "../components/Experience.astro";
+import Header from "../components/Header.astro";
+import "@fontsource-variable/inter";
 interface Props {
-	title: string;
+  title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJtMTIuODkgM2wxLjk2LjRMMTEuMTEgMjFsLTEuOTYtLjR6bTYuNyA5TDE2IDguNDFWNS41OEwyMi40MiAxMkwxNiAxOC40MXYtMi44M3pNMS41OCAxMkw4IDUuNTh2Mi44M0w0LjQxIDEyTDggMTUuNTh2Mi44M3oiLz48L3N2Zz4="
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body
+    class="flex flex-col justify-center items-center text-white"
+    style="font-family: 'Inter', sans-serif;"
+  >
+    <div
+      class="absolute top-0 z-[-2] min-h-screen h-[2000px] w-full bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+    >
+    </div>
+    <div class="w-full sm:max-w-7xl z-10 px-4 sm:px-4">
+      <Header />
+      <div class="flex flex-col gap-8">
+        <AboutMe />
+        <Experience />
+      </div>
+    </div>
+    <script src="/src/snow.js"></script>
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
